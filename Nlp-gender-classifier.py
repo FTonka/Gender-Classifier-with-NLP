@@ -21,16 +21,13 @@ from nltk.corpus import stopwords
 
 
 #description = description.split()
-
-# split yerine tokenizer kullanabiliriz
+# Instead of using the splitting, we can use the tokenize function. 
 description = nltk.word_tokenize(description)
 
-# split kullanırsak "shouldn't " gibi kelimeler "should" ve "not" diye ikiye ayrılmaz ama word_tokenize() kullanirsak ayrilir
-# %%
-# # greksiz kelimeleri cikar
+#Stopwords
 description = [ word for word in description if not word in set(stopwords.words("english"))]
-#%%
-#Lemmatizer =Köküne inme
+
+#Lemmatizer
 import nltk as nlp
 kok=nlp.WordNetLemmatizer()
 description=[kok.lemmatize(i) for i in description]
